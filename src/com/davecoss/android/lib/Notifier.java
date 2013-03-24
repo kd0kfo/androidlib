@@ -1,6 +1,7 @@
 package com.davecoss.android.lib;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,5 +29,10 @@ public class Notifier {
        text.setText(msg);
    }
  
+   public void log_exception(String tag, String msg, Exception e)
+   {
+	   toast_message(msg);
+	   Log.e("ListDB",msg + "\n" + e.getMessage());
+   }
    
 }
