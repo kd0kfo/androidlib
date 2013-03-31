@@ -10,8 +10,8 @@ import android.util.Log;
 
 public class SDIO {
 	
-	
-	public static OutputStream open_sdwriter(String filename) throws IOException
+	public static OutputStream open_sdwriter(String filename)throws IOException{return open_sdwriter(filename,true);}
+	public static OutputStream open_sdwriter(String filename, boolean should_append) throws IOException
 	{
 		boolean mExternalStorageAvailable = false;
 		boolean mExternalStorageWriteable = false;
@@ -46,7 +46,7 @@ public class SDIO {
 				}
 			}
 			File file = new File(dir, filename);
-			OutputStream os = new FileOutputStream(file,true);
+			OutputStream os = new FileOutputStream(file,should_append);
 			return os;
 		}
 		
