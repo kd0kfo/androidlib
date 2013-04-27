@@ -20,6 +20,6 @@ public class utils {
 		PackageInfo pi = act.getPackageManager().getPackageInfo(act.getPackageName(), 0);
 		String app_ver = pi.versionName;
 		String app_code = Integer.toString(pi.versionCode);
-		return "Version " + app_ver + "_" + app_code;
+		return "Version " + app_ver + " Build " + app_code;
 	}
 }
