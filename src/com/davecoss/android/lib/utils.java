@@ -35,6 +35,8 @@ public class utils {
     	} 
     	
     	File dir = parent.getExternalFilesDir(null);
+    	if(dir == null)
+    		throw new ExternalFileUnavailable("Unable to get external file for: " + parent.getLocalClassName());
     	return new ExternalFile(dir.getAbsolutePath());
 	}
 }
