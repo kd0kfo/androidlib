@@ -20,6 +20,10 @@
             android:name="com.davecoss.android.lib.SaveFileChooser"
             android:label="@string/title_activity_save_file_chooser" >
         </activity>
+        <activity
+            android:name="com.davecoss.android.lib.ConfirmationActivity"
+            android:label="@string/title_activity_confirmation" >
+        </activity>
     </application>
 
 </manifest>

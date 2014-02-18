@@ -11,5 +11,8 @@
     <string name="click_to_select">Click To Select</string>
     <string name="file">File</string>
     <string name="select">Select</string>
+    <string name="title_activity_confirmation">Confirmation</string>
+    <string name="btnConfirm">Ok</string>
+    <string name="btnCancel">Cancel</string>
 
 </resources>
