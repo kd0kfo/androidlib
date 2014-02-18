@@ -1,5 +1,16 @@
 package com.davecoss.android.lib;
 
+/**
+ * FileChooser
+ * @author David Coss, PhD
+ * 
+ * List Activity used to select a file from the external file system of the Android device.
+ * 
+ * To use, pass a start directory as an extra in the intent used to start the activity. Then,
+ * when a file has been selected the path will be placed in the result intent. There are START_DIRECTORY_KEY
+ * and RETURN_VALUE_KEY static strings used to identify the start directory and return value, respectively.
+ */
+
 import java.io.File;
 import java.io.IOException;
 
@@ -19,6 +30,9 @@ public class FileChooser extends ListActivity {
 	public static final int FILE_TYPE = 1;
 	public static final int DIRECTORY_TYPE = 2;
 	
+	public static final String START_DIRECTORY_KEY = "directory";
+	public static final String RETURN_VALUE_KEY = "file";
+	
 	private File currdir = null;
 	private Notifier notifier = null;
 	private int target_type = FILE_TYPE;
@@ -31,7 +45,7 @@ public class FileChooser extends ListActivity {
 		notifier = new Notifier(getApplicationContext());
 		
 		Intent intent = getIntent();
-		String startdir = intent.getStringExtra("directory");
+		String startdir = intent.getStringExtra(START_DIRECTORY_KEY);
 		target_type = intent.getFlags();
 		if(target_type == TYPE_NOT_SPECIFIED)
 			target_type = FILE_TYPE;
@@ -55,7 +69,7 @@ public class FileChooser extends ListActivity {
 			public void return_path(File path) {
 				Intent intent = new Intent();
 				try {
-					intent.putExtra("file", path.getCanonicalPath());
+					intent.putExtra(RETURN_VALUE_KEY, path.getCanonicalPath());
 					setResult(RESULT_OK, intent);
 				} catch (IOException e) {
 					notifier.log_exception("FileChooser", "Error getting canonical path to: '" + path.getAbsolutePath() + "'", e);
