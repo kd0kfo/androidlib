@@ -13,6 +13,7 @@ package com.davecoss.android.lib;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import android.os.Bundle;
 import android.app.ListActivity;
@@ -154,6 +155,7 @@ public class FileChooser extends ListActivity {
 		this.setTitle(currdir.getPath());
 		String[] files = null;
 		files = get_files(currdir);
+		Arrays.sort(files);
 		setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_file_chooser, files));
 	}
 }
