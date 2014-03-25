@@ -88,5 +88,15 @@ public class AndroidLog implements LogHandler {
 	public void info(String msg, Throwable throwable) {
 		Log.i(tag, msg, throwable);
 	}
+	
+	@Override
+	public void verbose(String msg) {
+		Log.v(tag, msg);
+	}
+
+	@Override
+	public void verbose(String msg, Throwable throwable) {
+		Log.v(tag, msg, throwable);
+	}
 
 }
